@@ -40,15 +40,23 @@ function displayData(json) {
         let imdbIdData = document.createElement("td"); // <td></td>
         let posterData = document.createElement("td"); // <td></td>
 
+        tableRow.setAttribute("class", "table-danger");
+
         // add data in all the td tags
         titleData.textContent = movieData[i].Title;
         yearData.textContent = movieData[i].Year;
         imdbIdData.textContent = movieData[i].imdbID;
 
+        // show image in poster td
+        let image = document.createElement("img"); // <img>
+        image.setAttribute("src", movieData[i].Poster); // <img src="....">
+        posterData.appendChild(image);
+
         // appending all the data to tr tags and adding tr to tbody tag
         tableRow.appendChild(imdbIdData);
         tableRow.appendChild(titleData);
         tableRow.appendChild(yearData);
+        tableRow.appendChild(posterData);
 
         tableBody.appendChild(tableRow);
     }
